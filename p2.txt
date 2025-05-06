@@ -1,0 +1,23 @@
+1.	mysql -u root -p
+2.	show databases;
+3.	show index from STUDENT;
+4.	create index rn on STUDENT (`Roll No`);
+5.	create index rnc on STUDENT (`Roll No`,Course);
+6.	DROP INDEX rnc ON STUDENT;
+7.	create user 'user1'@'localhost' IDENTIFIED BY '1111';
+8.	rename user 'user1'@'localhost' to 'localuser'@'localhost';
+9.	create user 'temp'@'localhost' identified by '1111';
+10.	drop user 'temp'@'localhost';
+11.	GRANT ALL PRIVILEGES ON student_society.* TO 'localuser'@'localhost'; 
+12.	GRANT SELECT, INSERT ON student_society.STUDENT TO 'localuser'@'localhost';
+13.	create user 'localuser2'@'localhost' identified by '111';
+14.	grant update,insert,select  on student_society.STUDENT TO 'localuser2'@'localhost';
+15.	select Host,User from mysql.user;
+16.	REVOKE SELECT ON student_society.* FROM 'localuser'@'localhost';
+17.	SHOW GRANTS FOR 'localuser'@'localhost';
+18.	REVOKE ALL PRIVILEGES ON *.* FROM 'localuser2'@'localhost';
+19.	CREATE ROLE 'read_only';
+20.	GRANT SELECT ON student_society.* TO 'read_only';
+21.	GRANT 'read_only' TO 'localuser'@'localhost';
+22.	DROP ROLE 'read_only';
+23.     REVOKE SELECT ON student_society.* FROM 'read_only';
